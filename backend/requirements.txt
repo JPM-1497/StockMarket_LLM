@@ -6,3 +6,7 @@ alembic
 python-jose[cryptography]
 passlib[bcrypt]
 python-dotenv
+yfinance
+tqdm
+lxml
+pandas
