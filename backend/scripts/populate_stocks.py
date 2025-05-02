@@ -31,7 +31,7 @@ def get_sp500_tickers() -> list[str]:
     return cleaned_tickers
 
 def save_stocks_to_db(tickers: list[str]):
-    """Save a list of tickers with their company names to the database, skipping duplicates."""
+    """Save a list of tickers with their company names and summaries to the database, skipping duplicates."""
     db: Session = SessionLocal()
 
     for ticker_symbol in tqdm(tickers, desc="Saving stocks to DB"):
@@ -41,12 +41,14 @@ def save_stocks_to_db(tickers: list[str]):
                 continue
 
             stock_info = yf.Ticker(ticker_symbol).info
-            company_name = stock_info.get('shortName', None)
+            company_name = stock_info.get('shortName')
+            summary = stock_info.get('longBusinessSummary')
 
             if company_name:
                 db_stock = Stock(
                     symbol=ticker_symbol,
                     name=company_name,
+                    summary=summary,
                     created_at=datetime.utcnow()
                 )
                 db.add(db_stock)
@@ -56,6 +58,7 @@ def save_stocks_to_db(tickers: list[str]):
 
     db.commit()
     db.close()
+
 
 
 def main():

@@ -18,7 +18,7 @@ from db.session import SessionLocal
 from models.stock import Stock
 from models.historical_price import HistoricalPrice
 
-def fetch_historical_prices(ticker: str, start_year="2000-01-01") -> list[dict]:
+def fetch_historical_prices(ticker: str, start_year="2025-01-01") -> list[dict]:
     try:
         df = yf.download(ticker, start=start_year, interval="1d", auto_adjust=False)
         if df.empty:

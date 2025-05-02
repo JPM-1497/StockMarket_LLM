@@ -1,6 +1,6 @@
 # backend/models/stock.py
 
-from sqlalchemy import Column, String, DateTime
+from sqlalchemy import Column, String, DateTime, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from uuid import uuid4
@@ -15,5 +15,6 @@ class Stock(Base):
     name = Column(String)
     sector = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
+    summary = Column(Text, nullable=True)
 
     historical_prices = relationship("HistoricalPrice", back_populates="stock")
