@@ -10,3 +10,5 @@ yfinance
 tqdm
 lxml
 pandas
+qdrant-client
+sentence-transformers
