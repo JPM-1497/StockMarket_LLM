@@ -1,1 +1,14 @@
+# Ignore all virtual environments
 venv/
+.env
+*.pyc
+__pycache__/
+*.pkl
+*.log
+
+# Ignore large data and model files
+*.pt
+*.h5
+*.dll
+*.lib
+*.ckpt
