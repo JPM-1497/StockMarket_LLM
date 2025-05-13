@@ -32,6 +32,22 @@ services:
     volumes:
       - qdrant_data:/qdrant/storage
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules  # prevents container from overwriting host node_modules
+    ports:
+      - "3000:3000"  # CRA or Vite default dev server port
+    working_dir: /app
+    command: npm run dev  # or `vite` depending on your project
+    environment:
+      - CHOKIDAR_USEPOLLING=true # 👈 ensures file watching works in Docker
+    depends_on:
+      - backend
+
 volumes:
   pgdata:
   qdrant_data:

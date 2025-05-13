@@ -1,0 +1,1430 @@
+{
+  "google": [
+    "GOOG",
+    "GOOGL",
+    "IT",
+    "PLTR",
+    "EXPE"
+  ],
+  "alphabet": [
+    "GOOGL",
+    "GOOG",
+    "SBAC",
+    "TXT",
+    "CAH"
+  ],
+  "gmail": [
+    "GOOGL",
+    "GOOG",
+    "GDDY",
+    "FFIV",
+    "INTU"
+  ],
+  "google cloud": [
+    "GOOG",
+    "GOOGL",
+    "FFIV",
+    "NTAP",
+    "GDDY"
+  ],
+  "youtube": [
+    "PARA",
+    "WBD",
+    "FOX",
+    "FOXA",
+    "LYV"
+  ],
+  "meta": [
+    "META",
+    "TTWO",
+    "PLTR",
+    "AMGN",
+    "INCY"
+  ],
+  "facebook": [
+    "META",
+    "FOXA",
+    "FOX",
+    "EXPE",
+    "ABNB"
+  ],
+  "instagram": [
+    "META",
+    "IPG",
+    "EQIX",
+    "ULTA",
+    "PARA"
+  ],
+  "whatsapp": [
+    "META",
+    "T",
+    "CHTR",
+    "MSI",
+    "VZ"
+  ],
+  "apple": [
+    "AAPL",
+    "MU",
+    "AMZN",
+    "INTC",
+    "BBY"
+  ],
+  "iphone": [
+    "AAPL",
+    "TMUS",
+    "MSI",
+    "QCOM",
+    "T"
+  ],
+  "ipad": [
+    "AAPL",
+    "META",
+    "INTC",
+    "HPE",
+    "BBY"
+  ],
+  "macbook": [
+    "SMCI",
+    "AAPL",
+    "DELL",
+    "MCHP",
+    "MU"
+  ],
+  "apple watch": [
+    "AAPL",
+    "GRMN",
+    "BBY",
+    "TPR",
+    "GOOGL"
+  ],
+  "microsoft": [
+    "MSFT",
+    "IBM",
+    "PLTR",
+    "ADBE",
+    "DELL"
+  ],
+  "windows": [
+    "MSFT",
+    "PLTR",
+    "DELL",
+    "WDC",
+    "HPQ"
+  ],
+  "azure": [
+    "MSFT",
+    "NTAP",
+    "IBM",
+    "FFIV",
+    "V"
+  ],
+  "linkedin": [
+    "VRSN",
+    "FDS",
+    "EXPE",
+    "TYL",
+    "PYPL"
+  ],
+  "office 365": [
+    "MSFT",
+    "ADBE",
+    "WDAY",
+    "META",
+    "GDDY"
+  ],
+  "amazon": [
+    "AMZN",
+    "GOOGL",
+    "GOOG",
+    "EXPE",
+    "BBY"
+  ],
+  "aws": [
+    "AMZN",
+    "TYL",
+    "FFIV",
+    "ANET",
+    "IBM"
+  ],
+  "prime": [
+    "IRM",
+    "PLD",
+    "O",
+    "PLTR",
+    "PARA"
+  ],
+  "e-commerce giant": [
+    "EBAY",
+    "PYPL",
+    "GDDY",
+    "EXPE",
+    "EQIX"
+  ],
+  "netflix": [
+    "NFLX",
+    "WBD",
+    "PARA",
+    "CMCSA",
+    "FOX"
+  ],
+  "streaming service": [
+    "CHTR",
+    "PARA",
+    "CMCSA",
+    "WBD",
+    "NFLX"
+  ],
+  "tv series production": [
+    "FOX",
+    "FOXA",
+    "PARA",
+    "WBD",
+    "TTWO"
+  ],
+  "nvidia": [
+    "NVDA",
+    "NXPI",
+    "EQIX",
+    "AMD",
+    "MA"
+  ],
+  "ai chips": [
+    "INTC",
+    "AMD",
+    "TER",
+    "ROK",
+    "SNPS"
+  ],
+  "graphics card manufacturer": [
+    "NVDA",
+    "AMD",
+    "INTC",
+    "NXPI",
+    "KLAC"
+  ],
+  "semiconductor leader": [
+    "ON",
+    "TER",
+    "DELL",
+    "KLAC",
+    "FSLR"
+  ],
+  "amd": [
+    "AMD",
+    "INTC",
+    "MCHP",
+    "TER",
+    "NXPI"
+  ],
+  "chipmaker": [
+    "INTC",
+    "AMD",
+    "CMG",
+    "MCHP",
+    "ZBRA"
+  ],
+  "processor maker": [
+    "INTC",
+    "AMD",
+    "TXN",
+    "MCHP",
+    "ROK"
+  ],
+  "semiconductor": [
+    "ON",
+    "TER",
+    "AMAT",
+    "GLW",
+    "DD"
+  ],
+  "intel": [
+    "INTC",
+    "AMD",
+    "MCHP",
+    "SMCI",
+    "MU"
+  ],
+  "microprocessors": [
+    "MCHP",
+    "AMD",
+    "INTC",
+    "TXN",
+    "SMCI"
+  ],
+  "cpu manufacturer": [
+    "AMD",
+    "INTC",
+    "JBL",
+    "NXPI",
+    "CF"
+  ],
+  "tesla": [
+    "TSLA",
+    "NEE",
+    "CAT",
+    "GE",
+    "EIX"
+  ],
+  "electric car company": [
+    "TSLA",
+    "GE",
+    "AEP",
+    "AES",
+    "XEL"
+  ],
+  "ev manufacturer": [
+    "TSLA",
+    "AES",
+    "GE",
+    "PGR",
+    "AME"
+  ],
+  "ford": [
+    "F",
+    "GPC",
+    "GM",
+    "ORLY",
+    "TXT"
+  ],
+  "automobile manufacturer": [
+    "GPC",
+    "ORLY",
+    "GM",
+    "AZO",
+    "LKQ"
+  ],
+  "truck maker": [
+    "GPC",
+    "TSCO",
+    "CAT",
+    "ORLY",
+    "LKQ"
+  ],
+  "general motors": [
+    "GM",
+    "GE",
+    "GD",
+    "CF",
+    "NOC"
+  ],
+  "chevy": [
+    "GM",
+    "GPC",
+    "F",
+    "AZO",
+    "KMX"
+  ],
+  "cadillac": [
+    "GM",
+    "F",
+    "TSLA",
+    "AZO",
+    "KMX"
+  ],
+  "car manufacturer": [
+    "GPC",
+    "GM",
+    "ORLY",
+    "AZO",
+    "KMX"
+  ],
+  "toyota": [
+    "GPC",
+    "AZO",
+    "GM",
+    "ORLY",
+    "TDG"
+  ],
+  "japanese carmaker": [
+    "JBL",
+    "PNR",
+    "GPC",
+    "TSLA",
+    "GNRC"
+  ],
+  "hybrid vehicles": [
+    "GPC",
+    "KMX",
+    "APTV",
+    "TSLA",
+    "ALL"
+  ],
+  "bmw": [
+    "TSLA",
+    "GPC",
+    "LKQ",
+    "ORLY",
+    "HWM"
+  ],
+  "luxury car brand": [
+    "HST",
+    "MAR",
+    "DECK",
+    "GM",
+    "HLT"
+  ],
+  "german auto company": [
+    "AZO",
+    "ORLY",
+    "GM",
+    "GPC",
+    "KMX"
+  ],
+  "rivian": [
+    "MRK",
+    "CNC",
+    "GEV",
+    "CL",
+    "ESS"
+  ],
+  "electric truck": [
+    "TSLA",
+    "CAT",
+    "ETN",
+    "GE",
+    "AME"
+  ],
+  "new ev company": [
+    "AES",
+    "GE",
+    "TSLA",
+    "PGR",
+    "NEE"
+  ],
+  "lucid": [
+    "ADBE",
+    "MDT",
+    "RMD",
+    "DOC",
+    "ELV"
+  ],
+  "luxury ev company": [
+    "TSLA",
+    "AES",
+    "GE",
+    "HST",
+    "MAR"
+  ],
+  "electric sedan": [
+    "TSLA",
+    "GEV",
+    "GE",
+    "AEP",
+    "GPC"
+  ],
+  "goldman sachs": [
+    "GS",
+    "WFC",
+    "BK",
+    "BLK",
+    "C"
+  ],
+  "investment bank": [
+    "JPM",
+    "BK",
+    "RJF",
+    "BLK",
+    "SCHW"
+  ],
+  "wall street firm": [
+    "BXP",
+    "BLK",
+    "STT",
+    "BX",
+    "SPG"
+  ],
+  "jpmorgan chase": [
+    "JPM",
+    "USB",
+    "TFC",
+    "MS",
+    "GS"
+  ],
+  "banking conglomerate": [
+    "RF",
+    "TFC",
+    "USB",
+    "PNC",
+    "MTB"
+  ],
+  "financial services company": [
+    "TFC",
+    "MS",
+    "USB",
+    "RJF",
+    "C"
+  ],
+  "bank of america": [
+    "USB",
+    "BAC",
+    "MTB",
+    "DFS",
+    "BK"
+  ],
+  "retail banking": [
+    "MTB",
+    "USB",
+    "FITB",
+    "JKHY",
+    "RF"
+  ],
+  "credit card issuer": [
+    "GPN",
+    "MA",
+    "FI",
+    "SYF",
+    "V"
+  ],
+  "citigroup": [
+    "C",
+    "CI",
+    "CTAS",
+    "PHM",
+    "OMC"
+  ],
+  "global bank": [
+    "BAC",
+    "GPN",
+    "GS",
+    "APO",
+    "AIG"
+  ],
+  "consumer banking": [
+    "USB",
+    "MTB",
+    "FITB",
+    "RF",
+    "BAC"
+  ],
+  "wells fargo": [
+    "WFC",
+    "USB",
+    "MS",
+    "HBAN",
+    "TFC"
+  ],
+  "mortgage lender": [
+    "HBAN",
+    "ICE",
+    "TFC",
+    "FITB",
+    "FI"
+  ],
+  "retail banking institution": [
+    "USB",
+    "PNC",
+    "MTB",
+    "RF",
+    "JKHY"
+  ],
+  "american express": [
+    "AXP",
+    "AMT",
+    "EXPD",
+    "MA",
+    "LUV"
+  ],
+  "credit card company": [
+    "MA",
+    "GPN",
+    "SYF",
+    "DFS",
+    "USB"
+  ],
+  "payments provider": [
+    "GPN",
+    "DFS",
+    "MA",
+    "PYPL",
+    "V"
+  ],
+  "visa": [
+    "V",
+    "FI",
+    "GPN",
+    "MA",
+    "EFX"
+  ],
+  "global payments network": [
+    "GPN",
+    "V",
+    "BAC",
+    "ICE",
+    "FI"
+  ],
+  "credit processor": [
+    "JKHY",
+    "MA",
+    "SYF",
+    "FI",
+    "GPN"
+  ],
+  "mastercard": [
+    "MA",
+    "SYF",
+    "JKHY",
+    "DFS",
+    "USB"
+  ],
+  "payments company": [
+    "GPN",
+    "PYPL",
+    "CPAY",
+    "DFS",
+    "FI"
+  ],
+  "transaction processor": [
+    "JKHY",
+    "INTC",
+    "FI",
+    "MCHP",
+    "ICE"
+  ],
+  "pfizer": [
+    "PFE",
+    "REGN",
+    "SOLV",
+    "MRNA",
+    "ABT"
+  ],
+  "covid vaccine maker": [
+    "MRNA",
+    "PFE",
+    "REGN",
+    "HOLX",
+    "MRK"
+  ],
+  "pharma company": [
+    "WBA",
+    "MRK",
+    "COR",
+    "ABBV",
+    "VTRS"
+  ],
+  "moderna": [
+    "MRNA",
+    "MAA",
+    "DLR",
+    "VTR",
+    "REG"
+  ],
+  "mrna vaccine developer": [
+    "MRNA",
+    "PFE",
+    "TECH",
+    "VRTX",
+    "CRL"
+  ],
+  "biotech firm": [
+    "TECH",
+    "DHR",
+    "ECL",
+    "BIIB",
+    "MCK"
+  ],
+  "johnson & johnson": [
+    "JNJ",
+    "TJX",
+    "JCI",
+    "PM",
+    "BF-B"
+  ],
+  "medical device company": [
+    "MDT",
+    "BSX",
+    "MCK",
+    "BAX",
+    "SYK"
+  ],
+  "pharmaceutical giant": [
+    "MRK",
+    "WBA",
+    "LLY",
+    "ABBV",
+    "WST"
+  ],
+  "eli lilly": [
+    "LLY",
+    "BALL",
+    "EW",
+    "LULU",
+    "BMY"
+  ],
+  "diabetes drug manufacturer": [
+    "PODD",
+    "WBA",
+    "LLY",
+    "DXCM",
+    "MRK"
+  ],
+  "merck": [
+    "MRK",
+    "CRWD",
+    "PAYX",
+    "PG",
+    "SJM"
+  ],
+  "cancer drug maker": [
+    "LLY",
+    "INCY",
+    "BIIB",
+    "GILD",
+    "BMY"
+  ],
+  "vaccines and medications": [
+    "MRNA",
+    "PFE",
+    "ABBV",
+    "REGN",
+    "VTRS"
+  ],
+  "amgen": [
+    "AMGN",
+    "AMD",
+    "MRNA",
+    "AME",
+    "INCY"
+  ],
+  "biotech company": [
+    "TECH",
+    "DHR",
+    "ECL",
+    "MRK",
+    "BIIB"
+  ],
+  "biopharmaceutical firm": [
+    "MCK",
+    "MRK",
+    "GILD",
+    "WST",
+    "LLY"
+  ],
+  "bristol myers": [
+    "BMY",
+    "BAX",
+    "BIIB",
+    "ZTS",
+    "PFE"
+  ],
+  "immunotherapy company": [
+    "MRNA",
+    "ABBV",
+    "MRK",
+    "AMGN",
+    "BMY"
+  ],
+  "pharma research firm": [
+    "WBA",
+    "GILD",
+    "MRK",
+    "ABT",
+    "ABBV"
+  ],
+  "abbvie": [
+    "ABBV",
+    "PARA",
+    "WBD",
+    "TTWO",
+    "EXPE"
+  ],
+  "immunology treatments": [
+    "REGN",
+    "MRNA",
+    "AMGN",
+    "ABBV",
+    "BMY"
+  ],
+  "biopharma leader": [
+    "BIIB",
+    "LLY",
+    "GILD",
+    "MRK",
+    "PFE"
+  ],
+  "exxonmobil": [
+    "XOM",
+    "EOG",
+    "OXY",
+    "EXC",
+    "CVX"
+  ],
+  "oil company": [
+    "OXY",
+    "EOG",
+    "XOM",
+    "APA",
+    "HES"
+  ],
+  "gas giant": [
+    "CTRA",
+    "WMB",
+    "APD",
+    "DVN",
+    "EOG"
+  ],
+  "chevron": [
+    "CVX",
+    "KMI",
+    "XOM",
+    "CAT",
+    "MPC"
+  ],
+  "energy producer": [
+    "NRG",
+    "GNRC",
+    "NEE",
+    "XEL",
+    "LNT"
+  ],
+  "petroleum company": [
+    "OXY",
+    "XOM",
+    "EOG",
+    "HES",
+    "APA"
+  ],
+  "shell": [
+    "PLTR",
+    "MSI",
+    "TRMB",
+    "PANW",
+    "LDOS"
+  ],
+  "global energy firm": [
+    "NRG",
+    "DUK",
+    "XEL",
+    "KKR",
+    "AES"
+  ],
+  "oil and gas": [
+    "OXY",
+    "MPC",
+    "WMB",
+    "OKE",
+    "TRGP"
+  ],
+  "nextera": [
+    "NEE",
+    "T",
+    "FI",
+    "GEV",
+    "TTWO"
+  ],
+  "renewable energy provider": [
+    "NRG",
+    "ENPH",
+    "XEL",
+    "AES",
+    "GNRC"
+  ],
+  "utility company": [
+    "ES",
+    "EXC",
+    "LNT",
+    "AEP",
+    "XEL"
+  ],
+  "duke energy": [
+    "DUK",
+    "D",
+    "EXE",
+    "BEN",
+    "NRG"
+  ],
+  "electricity supplier": [
+    "AEP",
+    "AES",
+    "LNT",
+    "ETR",
+    "XEL"
+  ],
+  "power company": [
+    "AEP",
+    "DUK",
+    "XEL",
+    "AES",
+    "PEG"
+  ],
+  "southern company": [
+    "SO",
+    "NSC",
+    "DRI",
+    "MO",
+    "TJX"
+  ],
+  "gas and electric utility": [
+    "CMS",
+    "CNP",
+    "NRG",
+    "LNT",
+    "XEL"
+  ],
+  "walmart": [
+    "WMT",
+    "KR",
+    "ROST",
+    "DG",
+    "TGT"
+  ],
+  "retail giant": [
+    "KR",
+    "WMT",
+    "ROST",
+    "GIS",
+    "WBA"
+  ],
+  "discount store chain": [
+    "REG",
+    "WMT",
+    "BKNG",
+    "DG",
+    "MKC"
+  ],
+  "costco": [
+    "COST",
+    "PEP",
+    "MKC",
+    "MAS",
+    "KIM"
+  ],
+  "warehouse club": [
+    "WMT",
+    "EXPD",
+    "KR",
+    "REG",
+    "WYNN"
+  ],
+  "retail membership store": [
+    "WMT",
+    "KR",
+    "ROST",
+    "TGT",
+    "WBA"
+  ],
+  "target": [
+    "TGT",
+    "MTCH",
+    "LHX",
+    "LYV",
+    "TRMB"
+  ],
+  "big-box retailer": [
+    "KR",
+    "BBY",
+    "GIS",
+    "TSCO",
+    "WMT"
+  ],
+  "department store": [
+    "KR",
+    "ROST",
+    "DG",
+    "WMT",
+    "MKC"
+  ],
+  "procter & gamble": [
+    "CZR",
+    "PG",
+    "GOOGL",
+    "GOOG",
+    "CCL"
+  ],
+  "household product maker": [
+    "HD",
+    "GNRC",
+    "CHD",
+    "ITW",
+    "BBY"
+  ],
+  "consumer goods company": [
+    "KR",
+    "MMM",
+    "BBY",
+    "TGT",
+    "MKC"
+  ],
+  "coca-cola": [
+    "KO",
+    "PEP",
+    "KDP",
+    "MNST",
+    "TAP"
+  ],
+  "beverage company": [
+    "KDP",
+    "MNST",
+    "PEP",
+    "KO",
+    "TAP"
+  ],
+  "soft drinks": [
+    "KO",
+    "PEP",
+    "KDP",
+    "MNST",
+    "TAP"
+  ],
+  "pepsico": [
+    "PEP",
+    "KO",
+    "KDP",
+    "COST",
+    "GIS"
+  ],
+  "snack food giant": [
+    "K",
+    "CPB",
+    "GIS",
+    "CAG",
+    "HSY"
+  ],
+  "drink manufacturer": [
+    "TAP",
+    "KDP",
+    "PEP",
+    "BALL",
+    "KO"
+  ],
+  "unilever": [
+    "OMC",
+    "EVRG",
+    "EQIX",
+    "BLK",
+    "IPG"
+  ],
+  "personal care and food company": [
+    "GIS",
+    "SYY",
+    "CAG",
+    "CPB",
+    "KR"
+  ],
+  "nike": [
+    "NKE",
+    "DECK",
+    "RL",
+    "LULU",
+    "TJX"
+  ],
+  "athletic footwear brand": [
+    "NKE",
+    "DECK",
+    "RL",
+    "LULU",
+    "WBA"
+  ],
+  "sportswear company": [
+    "NKE",
+    "DECK",
+    "RL",
+    "LULU",
+    "TJX"
+  ],
+  "adidas": [
+    "NKE",
+    "RL",
+    "DECK",
+    "LULU",
+    "ROST"
+  ],
+  "sporting goods company": [
+    "NKE",
+    "DECK",
+    "BALL",
+    "HAS",
+    "CZR"
+  ],
+  "apparel brand": [
+    "RL",
+    "DECK",
+    "NKE",
+    "TPR",
+    "TJX"
+  ],
+  "boeing": [
+    "BA",
+    "HON",
+    "RTX",
+    "LMT",
+    "DAL"
+  ],
+  "aircraft manufacturer": [
+    "HWM",
+    "BA",
+    "TXT",
+    "APD",
+    "SWKS"
+  ],
+  "aerospace and defense": [
+    "BA",
+    "LMT",
+    "NOC",
+    "GD",
+    "RTX"
+  ],
+  "airbus": [
+    "BA",
+    "ARE",
+    "EQIX",
+    "HWM",
+    "EXPD"
+  ],
+  "european aircraft maker": [
+    "HWM",
+    "TXT",
+    "TDG",
+    "APD",
+    "JCI"
+  ],
+  "delta airlines": [
+    "DAL",
+    "LUV",
+    "UAL",
+    "BA",
+    "CPAY"
+  ],
+  "major us airline": [
+    "UAL",
+    "LUV",
+    "DAL",
+    "BA",
+    "AXP"
+  ],
+  "air travel": [
+    "DAL",
+    "APD",
+    "UAL",
+    "CARR",
+    "LUV"
+  ],
+  "american airlines": [
+    "UAL",
+    "LUV",
+    "DAL",
+    "AXP",
+    "BA"
+  ],
+  "commercial airline": [
+    "LUV",
+    "BA",
+    "UAL",
+    "DAL",
+    "CARR"
+  ],
+  "flight services": [
+    "BA",
+    "DAL",
+    "LMT",
+    "LUV",
+    "LDOS"
+  ],
+  "united airlines": [
+    "UAL",
+    "UPS",
+    "LUV",
+    "DAL",
+    "AXP"
+  ],
+  "global airline company": [
+    "CARR",
+    "BA",
+    "AIG",
+    "UAL",
+    "LUV"
+  ],
+  "salesforce": [
+    "CRM",
+    "DLR",
+    "GDDY",
+    "JKHY",
+    "USB"
+  ],
+  "crm software company": [
+    "PTC",
+    "ADP",
+    "PAYC",
+    "EPAM",
+    "DAY"
+  ],
+  "cloud business tools": [
+    "MSFT",
+    "IBM",
+    "GDDY",
+    "WDAY",
+    "ORCL"
+  ],
+  "snowflake": [
+    "PLTR",
+    "DE",
+    "SPG",
+    "CB",
+    "META"
+  ],
+  "cloud data warehouse": [
+    "DLR",
+    "WDAY",
+    "NTAP",
+    "IBM",
+    "MSFT"
+  ],
+  "big data platform": [
+    "DLR",
+    "PLTR",
+    "CRM",
+    "FDS",
+    "NDAQ"
+  ],
+  "palantir": [
+    "PLTR",
+    "ABBV",
+    "GILD",
+    "RSG",
+    "FI"
+  ],
+  "government analytics contractor": [
+    "VRSK",
+    "MSCI",
+    "PWR",
+    "WDAY",
+    "ADP"
+  ],
+  "big data company": [
+    "DLR",
+    "GOOGL",
+    "GOOG",
+    "IBM",
+    "BXP"
+  ],
+  "zoom": [
+    "EQIX",
+    "COO",
+    "TRMB",
+    "SNA",
+    "KEYS"
+  ],
+  "video conferencing company": [
+    "WBD",
+    "CMCSA",
+    "PARA",
+    "FOXA",
+    "FOX"
+  ],
+  "remote meeting platform": [
+    "META",
+    "PLTR",
+    "DLR",
+    "PTC",
+    "INVH"
+  ],
+  "slack": [
+    "ROP",
+    "SNA",
+    "URI",
+    "HUBB",
+    "TTWO"
+  ],
+  "messaging tool": [
+    "PLTR",
+    "META",
+    "BR",
+    "PTC",
+    "TXT"
+  ],
+  "business collaboration tool": [
+    "IBM",
+    "PTC",
+    "WDAY",
+    "PAYC",
+    "INTU"
+  ],
+  "shopify": [
+    "TGT",
+    "WMT",
+    "AAPL",
+    "GDDY",
+    "MDLZ"
+  ],
+  "e-commerce platform": [
+    "EBAY",
+    "GDDY",
+    "CRM",
+    "V",
+    "ICE"
+  ],
+  "online storefront builder": [
+    "HD",
+    "BLDR",
+    "GDDY",
+    "DASH",
+    "CSGP"
+  ],
+  "snapchat": [
+    "SNA",
+    "META",
+    "DLR",
+    "ADBE",
+    "NTAP"
+  ],
+  "photo sharing app": [
+    "META",
+    "ADBE",
+    "FFIV",
+    "NTAP",
+    "ROP"
+  ],
+  "social messaging app": [
+    "META",
+    "TMUS",
+    "CHTR",
+    "VZ",
+    "T"
+  ],
+  "tiktok": [
+    "PANW",
+    "AME",
+    "K",
+    "ADSK",
+    "SNPS"
+  ],
+  "short video platform": [
+    "META",
+    "DLR",
+    "PARA",
+    "TTWO",
+    "NVDA"
+  ],
+  "bytedance affiliate": [
+    "IPG",
+    "PYPL",
+    "EQIX",
+    "CRWD",
+    "BXP"
+  ],
+  "spotify": [
+    "AAPL",
+    "ADBE",
+    "LYV",
+    "SYF",
+    "GOOGL"
+  ],
+  "music streaming service": [
+    "LYV",
+    "CHTR",
+    "AAPL",
+    "CMCSA",
+    "DLR"
+  ],
+  "audio entertainment": [
+    "LYV",
+    "PARA",
+    "ADBE",
+    "FOX",
+    "FOXA"
+  ],
+  "roku": [
+    "WBD",
+    "FOXA",
+    "FOX",
+    "CMCSA",
+    "PARA"
+  ],
+  "streaming device company": [
+    "PARA",
+    "CMCSA",
+    "WBD",
+    "NFLX",
+    "CHTR"
+  ],
+  "ott platform provider": [
+    "ROP",
+    "T",
+    "PODD",
+    "STE",
+    "DLR"
+  ],
+  "uber": [
+    "UBER",
+    "GPC",
+    "GOOGL",
+    "GOOG",
+    "CPAY"
+  ],
+  "ride-hailing company": [
+    "UBER",
+    "CPAY",
+    "GM",
+    "PGR",
+    "OTIS"
+  ],
+  "mobility platform": [
+    "DLR",
+    "UBER",
+    "CSCO",
+    "TRMB",
+    "JNPR"
+  ],
+  "lyft": [
+    "UBER",
+    "LKQ",
+    "LLY",
+    "META",
+    "EXPE"
+  ],
+  "transportation app": [
+    "UBER",
+    "CSX",
+    "TRMB",
+    "GRMN",
+    "JBHT"
+  ],
+  "rideshare provider": [
+    "UBER",
+    "GOOG",
+    "GOOGL",
+    "BKNG",
+    "AAPL"
+  ],
+  "doordash": [
+    "DASH",
+    "ALLE",
+    "INVH",
+    "BLDR",
+    "WY"
+  ],
+  "food delivery company": [
+    "SYY",
+    "GIS",
+    "CHRW",
+    "CAG",
+    "KHC"
+  ],
+  "restaurant logistics": [
+    "CHRW",
+    "DRI",
+    "SYY",
+    "KR",
+    "DASH"
+  ],
+  "airbnb": [
+    "ABNB",
+    "INVH",
+    "WYNN",
+    "CMCSA",
+    "EXPE"
+  ],
+  "vacation rental company": [
+    "HLT",
+    "HST",
+    "MAR",
+    "CCL",
+    "MAA"
+  ],
+  "lodging marketplace": [
+    "HST",
+    "INVH",
+    "REG",
+    "VTR",
+    "WYNN"
+  ]
+}

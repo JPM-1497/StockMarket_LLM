@@ -10,7 +10,7 @@ sys.path.append(BASE_DIR)
 
 # ✅ Step 2: Load .env from root of project
 from dotenv import load_dotenv
-dotenv_path = os.path.join(BASE_DIR, '.env')
+dotenv_path = os.path.join(BASE_DIR, 'db', '.env')
 load_dotenv(dotenv_path)
 
 print(f"[env.py] Loading .env from: {dotenv_path}")
@@ -20,6 +20,7 @@ print(f"[env.py] DATABASE_URL = {os.getenv('DATABASE_URL')}")
 # ✅ Step 3: Fail fast if env is still not loaded
 db_url = os.getenv("DATABASE_URL")
 if not db_url:
+
     raise RuntimeError("DATABASE_URL is not set. Check your .env file or .env path in env.py")
 
 # ✅ Step 4: Inject into Alembic config
@@ -32,6 +33,7 @@ from db.base import Base
 from models.user import User
 from models.strategy import Strategy
 from models.historical_price import HistoricalPrice  # <- include this!
+
 
 target_metadata = Base.metadata
 

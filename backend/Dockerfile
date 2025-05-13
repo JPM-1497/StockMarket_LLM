@@ -19,7 +19,9 @@ COPY . .
 
 # Install Python dependencies
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install "numpy<2.0.0"
+RUN pip install --default-timeout=100 --retries=10 --no-cache-dir -r requirements.txt
+
 
 # Expose FastAPI port
 EXPOSE 8000
