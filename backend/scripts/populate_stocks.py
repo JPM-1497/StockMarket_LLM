@@ -52,17 +52,28 @@ def save_stocks_to_db(tickers: list[str]):
                     created_at=datetime.utcnow()
                 )
                 db.add(db_stock)
+<<<<<<< HEAD
                 db.commit()  # 💡 commit here per ticker
 
         except Exception as e:
             logging.error(f"❌ Error fetching {ticker_symbol}: {e}")
             db.rollback()  # 💥 this resets the session state so the next ticker works
 
+=======
+
+        except Exception as e:
+            logging.error(f"❌ Error fetching {ticker_symbol}: {e}")
+
+    db.commit()
+>>>>>>> b8fb39c1e47ecb3da4bad163fb4f4a234c37e7be
     db.close()
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b8fb39c1e47ecb3da4bad163fb4f4a234c37e7be
 def main():
     logging.info("🔎 Fetching S&P 500 tickers...")
     tickers = get_sp500_tickers()
