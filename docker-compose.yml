@@ -34,6 +34,7 @@ services:
     volumes:
       - qdrant_data:/qdrant/storage
 
+<<<<<<< HEAD
   frontend:
     build:
       context: ./frontend
@@ -50,6 +51,8 @@ services:
     depends_on:
       - backend
 
+=======
+>>>>>>> b8fb39c1e47ecb3da4bad163fb4f4a234c37e7be
 volumes:
   pgdata:
   qdrant_data:
