@@ -5,3 +5,4 @@ import models.user
 import models.strategy
 import models.stock
 import models.historical_price
+import models.news_article

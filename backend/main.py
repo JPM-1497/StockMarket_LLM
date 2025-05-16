@@ -4,6 +4,8 @@ from api import auth, strategies
 from api.vector_search import router as vector_search_router  # ✅ New import
 from api.semantic_search import router as semantic_search_router
 from api.compare import router as compare_router
+from api.news import router as news_router  
+
 
 app = FastAPI()
 
@@ -22,3 +24,4 @@ app.include_router(strategies.router, prefix="/api/strategies", tags=["strategie
 app.include_router(vector_search_router, prefix="/api", tags=["vector-search"])
 app.include_router(semantic_search_router, prefix="/api", tags=["semantic-search"])
 app.include_router(compare_router, prefix="/api", tags=["compare"])
+app.include_router(news_router, prefix="/api", tags=["news"])

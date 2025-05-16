@@ -16,3 +16,5 @@ lxml
 pandas
 qdrant-client
 sentence-transformers
+openai>=1.0.0
+

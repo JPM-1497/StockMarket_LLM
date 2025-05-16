@@ -24,7 +24,14 @@ const NavBar = () => {
           </Link>
           <Link to="/chat" className="hover:text-blue-300">
             Chat
-          </Link> {/* ✅ New Chat Link */}
+          </Link> 
+          <Link to="/news" className="hover:text-blue-300">
+            News
+          </Link>
+          <Link to="/news-archive" className="hover:text-blue-300">
+            News Archive
+          </Link>
+          {/* ✅ New Chat Link */}
         </div>
       </div>
     </nav>
