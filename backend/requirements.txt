@@ -20,6 +20,11 @@ pandas
 qdrant-client
 <<<<<<< HEAD
 sentence-transformers
+<<<<<<< HEAD
+openai>=1.0.0
+
+=======
 =======
 sentence-transformers
 >>>>>>> b8fb39c1e47ecb3da4bad163fb4f4a234c37e7be
+>>>>>>> main

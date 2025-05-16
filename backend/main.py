@@ -5,8 +5,13 @@ from api.vector_search import router as vector_search_router  # ✅ New import
 <<<<<<< HEAD
 from api.semantic_search import router as semantic_search_router
 from api.compare import router as compare_router
+<<<<<<< HEAD
+from api.news import router as news_router  
+
+=======
 =======
 >>>>>>> b8fb39c1e47ecb3da4bad163fb4f4a234c37e7be
+>>>>>>> main
 
 app = FastAPI()
 
@@ -30,6 +35,10 @@ app.include_router(vector_search_router, prefix="/api", tags=["vector-search"])
 <<<<<<< HEAD
 app.include_router(semantic_search_router, prefix="/api", tags=["semantic-search"])
 app.include_router(compare_router, prefix="/api", tags=["compare"])
+<<<<<<< HEAD
+app.include_router(news_router, prefix="/api", tags=["news"])
+=======
 =======
 
 >>>>>>> b8fb39c1e47ecb3da4bad163fb4f4a234c37e7be
+>>>>>>> main
