@@ -6,6 +6,8 @@ import Chat from './pages/Chat';
 import SemanticSearch from './pages/SemanticSearch';
 import News from './pages/News'; // ✅ Importing the News page
 import NewsArchive from './pages/NewsArchive';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
           <Route path="/semantic-search" element={<SemanticSearch />} />
           <Route path="/news" element={<News />} />
           <Route path="/news-archive" element={<NewsArchive />} />
+          <Route path="/login" element={<Login />} />
+<Route path="/signup" element={<Signup />} />
           {/* Future routes */}
         </Routes>
       </div>

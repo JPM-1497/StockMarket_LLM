@@ -8,6 +8,7 @@ from utils.query_parser import extract_tickers_and_dates
 from models.historical_price import HistoricalPrice
 from models.stock import Stock
 from services.llm_orchestrator import summarize_stock_comparison
+from services.news_fetcher import get_recent_news_for_stock
 
 router = APIRouter()
 
@@ -25,8 +26,9 @@ def compare_stocks(query: str = Query(...), db: Session = Depends(get_db)):
     except ValueError as e:
         return {"error": str(e)}
 
-    # Only fetch and include stocks that were explicitly matched
     comparison_data = {}
+    news_data = {}  # ✅ Store news per stock
+
     for ticker in tickers:
         stock = db.query(Stock).filter(Stock.symbol == ticker).first()
         prices = db.query(HistoricalPrice).join(Stock).filter(
@@ -44,11 +46,15 @@ def compare_stocks(query: str = Query(...), db: Session = Depends(get_db)):
                 "pct_change": round(pct_change, 2)
             }
 
+            # ✅ Add news fetching here
+            news_data[ticker] = get_recent_news_for_stock(stock.name, db)
+
     return {
         "query": query,
         "tickers": tickers,
         "start_date": start_date,
         "end_date": end_date,
         "results": comparison_data,
+        "news": news_data,  # ✅ Include news in response
         "summary": summarize_stock_comparison(comparison_data, query)
     }
