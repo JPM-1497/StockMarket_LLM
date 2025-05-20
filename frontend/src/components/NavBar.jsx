@@ -10,28 +10,16 @@ const NavBar = () => {
           Stock Copilot
         </Link>
         <div className="space-x-6">
-          <Link to="/" className="hover:text-blue-300">
-            Home
+          <Link to="/login" className="hover:text-blue-300">
+            Login
           </Link>
-          <Link to="/semantic-search" className="hover:text-blue-300">
-            Sector Search
-          </Link>
-          <Link to="/about" className="hover:text-blue-300">
-            About
-          </Link>
-          <Link to="/saved" className="hover:text-blue-300">
-            Saved
+          <Link to="/signup" className="hover:text-blue-300">
+            Sign Up
           </Link>
           <Link to="/chat" className="hover:text-blue-300">
             Chat
-          </Link> 
-          <Link to="/news" className="hover:text-blue-300">
-            News
           </Link>
-          <Link to="/news-archive" className="hover:text-blue-300">
-            News Archive
-          </Link>
-          {/* ✅ New Chat Link */}
+
         </div>
       </div>
     </nav>
