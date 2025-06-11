@@ -1,5 +1,5 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.1.0
+torch>=2.1.0
 numpy>=1.24
 
 fastapi
@@ -17,5 +17,4 @@ pandas
 qdrant-client
 sentence-transformers
 openai>=1.0.0
-
 

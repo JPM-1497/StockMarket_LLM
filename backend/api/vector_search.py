@@ -88,3 +88,10 @@ def search_stocks(query: str = Query(..., description="Search query for stock su
 @router.get("/health")
 def health_check():
     return {"status": "ok"}
+
+from services.comparison_engine import compare_stocks
+
+@router.get("/compare_stocks")
+def compare_stocks_route(query: str):
+    return compare_stocks(query)
+
