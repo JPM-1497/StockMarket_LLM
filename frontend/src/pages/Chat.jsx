@@ -1,5 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  TimeScale,
+} from 'chart.js';
+import 'chartjs-adapter-date-fns';
+
+ChartJS.register(LineElement, PointElement, LinearScale, Title, Tooltip, Legend, CategoryScale, TimeScale);
 
 const Chat = () => {
   const [messages, setMessages] = useState([
@@ -11,6 +26,7 @@ const Chat = () => {
   const [matchedTickers, setMatchedTickers] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [expandedCard, setExpandedCard] = useState(null);
+  const [activeTab, setActiveTab] = useState('chart');
   const chatContainerRef = useRef(null);
 
   const sendMessage = async () => {
@@ -26,24 +42,18 @@ const Chat = () => {
         params: { query: input }
       });
 
-      const summary = response.data.summary || '';
-      const resultsObj = response.data.results || {};
+      let summary = '';
+      let resultsObj = {};
 
-      // Filter: match based on summary text (ticker or name)
-      const filteredTickers = Object.entries(resultsObj)
-      .filter(([symbol, data]) => {
-        const regexSymbol = new RegExp(`\\b${symbol}\\b`, 'i');
-        const allNameWords = data.name.split(/\s+/).filter(w => w.length > 2); // Skip short/common words
-        const nameMatched = allNameWords.some(word => {
-          const nameRegex = new RegExp(`\\b${word}\\b`, 'i');
-          return nameRegex.test(summary);
-        });
-        return regexSymbol.test(summary) || nameMatched;
-      })
-      .map(([symbol]) => symbol);
-    
+      if (typeof response.data === 'string') {
+        summary = response.data;
+      } else {
+        summary = response.data?.summary || '';
+        resultsObj = response.data?.results || {};
+      }
 
-      // Highlight tickers in the summary
+      const filteredTickers = Object.keys(resultsObj);
+
       let highlightedSummary = summary;
       filteredTickers.forEach(ticker => {
         const regex = new RegExp(`\\b${ticker}\\b`, 'gi');
@@ -66,6 +76,7 @@ const Chat = () => {
       }
 
     } catch (error) {
+      console.error('❌ API Error:', error);
       setMessages([...newMessages, { role: 'assistant', content: '❌ Something went wrong.' }]);
       setNewsResults([]);
     }
@@ -77,6 +88,56 @@ const Chat = () => {
       behavior: 'smooth',
     });
   }, [messages]);
+
+  const renderLineChart = () => {
+    if (!matchedTickers.length || !results || !results[matchedTickers[0]]?.daily) {
+      return <p>No chart data available.</p>;
+    }
+
+    const datasets = matchedTickers.map((ticker) => {
+      const prices = results[ticker]?.daily;
+      if (!Array.isArray(prices)) return null;
+
+      return {
+        label: ticker,
+        data: prices.map(p => ({
+          x: new Date(p.date),
+          y: p.close
+        })),
+        borderWidth: 2,
+        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        tension: 0.4,
+      };
+    }).filter(Boolean);
+
+    const data = { datasets };
+
+    const options = {
+      responsive: true,
+      scales: {
+        x: {
+          type: 'time',
+          time: { unit: 'day' },
+          title: { display: true, text: 'Date' }
+        },
+        y: {
+          title: { display: true, text: 'Close Price ($)' }
+        }
+      },
+      plugins: {
+        legend: { position: 'top' },
+        title: { display: true, text: 'Stock Price Over Time' },
+        tooltip: {
+          callbacks: {
+            label: (context) => `$${context.parsed.y.toFixed(2)}`
+          }
+        }
+      }
+    };
+
+    return <Line data={data} options={options} />;
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 p-4">
@@ -108,7 +169,7 @@ const Chat = () => {
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && sendMessage()}
-                placeholder="Ask more about stock trends..."
+                placeholder="Ask more about stock trends."
                 className="flex-1 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <button
@@ -134,13 +195,19 @@ const Chat = () => {
                       <div key={symbol} className="bg-white p-4 rounded-lg shadow border border-gray-200">
                         <div className="text-sm text-gray-500 mb-1">{data.name}</div>
                         <div className="text-2xl font-bold text-blue-700">{symbol}</div>
-                        <div
-                          className={`text-sm font-semibold mt-1 ${
-                            data.pct_change >= 0 ? 'text-green-600' : 'text-red-600'
-                          }`}
-                        >
-                          {data.pct_change >= 0 ? '+' : ''}
-                          {data.pct_change}%
+                        <div className="mt-2 space-y-1 text-sm">
+                          <div>
+                            <span className="text-gray-500">Start:</span>{' '}
+                            <span className="font-semibold">${data.start_price?.toFixed(2)}</span>
+                          </div>
+                          <div>
+                            <span className="text-gray-500">End:</span>{' '}
+                            <span className="font-semibold">${data.end_price?.toFixed(2)}</span>
+                          </div>
+                          <div className={data.pct_change >= 0 ? 'text-green-600' : 'text-red-600'}>
+                            Change: {data.pct_change >= 0 ? '+' : ''}
+                            {data.pct_change?.toFixed(2)}%
+                          </div>
                         </div>
                       </div>
                     );
@@ -149,39 +216,63 @@ const Chat = () => {
               </div>
             )}
 
-            {/* News */}
-            <div>
-              <h2 className="text-xl font-bold text-blue-700 mb-4">📰 Related News</h2>
-              {newsResults.length > 0 ? (
-                <div className="grid grid-cols-1 gap-4">
-                  {newsResults.map((article, idx) => {
-                    const isExpanded = expandedCard === idx;
-                    return (
-                      <div key={idx} className="bg-white p-4 rounded-lg shadow overflow-hidden transition-all">
-                        <a
-                          href={article.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 font-semibold hover:underline block mb-1"
-                        >
-                          {article.title}
-                        </a>
-                        <p className={`text-gray-700 text-sm ${isExpanded ? '' : 'line-clamp-3'}`}>
-                          {article.description || 'No description available.'}
-                        </p>
-                        <div className="text-xs text-gray-400 mt-2">{article.published_at}</div>
-                        <button
-                          onClick={() => setExpandedCard(isExpanded ? null : idx)}
-                          className="text-sm text-blue-500 mt-2 hover:underline"
-                        >
-                          {isExpanded ? 'Show Less' : 'Read More'}
-                        </button>
-                      </div>
-                    );
-                  })}
-                </div>
+            {/* Tabs */}
+            <div className="flex gap-4 mt-4">
+              <button
+                onClick={() => setActiveTab('chart')}
+                className={`px-4 py-2 rounded-t-lg font-semibold ${
+                  activeTab === 'chart' ? 'bg-blue-200 text-blue-800' : 'bg-gray-100 text-gray-500'
+                }`}
+              >
+                📈 Line Chart
+              </button>
+              <button
+                onClick={() => setActiveTab('news')}
+                className={`px-4 py-2 rounded-t-lg font-semibold ${
+                  activeTab === 'news' ? 'bg-blue-200 text-blue-800' : 'bg-gray-100 text-gray-500'
+                }`}
+              >
+                📰 News
+              </button>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg shadow">
+              {activeTab === 'chart' ? (
+                matchedTickers.length > 0 ? renderLineChart() : <p>No chart data available.</p>
               ) : (
-                <p className="text-gray-500">No news articles found yet.</p>
+                <div>
+                  {newsResults.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-4">
+                      {newsResults.map((article, idx) => {
+                        const isExpanded = expandedCard === idx;
+                        return (
+                          <div key={idx} className="bg-white p-4 rounded-lg shadow">
+                            <a
+                              href={article.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 font-semibold hover:underline block mb-1"
+                            >
+                              {article.title}
+                            </a>
+                            <p className={`text-gray-700 text-sm ${isExpanded ? '' : 'line-clamp-3'}`}>
+                              {article.description || 'No description available.'}
+                            </p>
+                            <div className="text-xs text-gray-400 mt-2">{article.published_at}</div>
+                            <button
+                              onClick={() => setExpandedCard(isExpanded ? null : idx)}
+                              className="text-sm text-blue-500 mt-2 hover:underline"
+                            >
+                              {isExpanded ? 'Show Less' : 'Read More'}
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <p className="text-gray-500">No news articles found yet.</p>
+                  )}
+                </div>
               )}
             </div>
           </div>
@@ -212,7 +303,7 @@ const Chat = () => {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && sendMessage()}
-              placeholder="Ask about Meta vs Amazon in 2025..."
+              placeholder="Ask about Meta vs Amazon in 2025."
               className="flex-1 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <button

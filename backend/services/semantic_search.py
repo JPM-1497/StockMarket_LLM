@@ -1,37 +1,38 @@
 # backend/services/semantic_search.py
 
-from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import SearchRequest, Filter, FieldCondition, MatchValue
+from sentence_transformers import SentenceTransformer
+from typing import List, Dict
 
-# Initialize once (use caching/DI in production)
-model = SentenceTransformer("all-MiniLM-L6-v2")
-qdrant = QdrantClient(host="qdrant", port=6333)
-
-COLLECTION_NAME = "stock_summaries"
-
-def semantic_sector_search(user_query: str, top_k: int = 5):
+def semantic_sector_search(
+    query: str,
+    qdrant_client: QdrantClient,
+    encoder: SentenceTransformer,
+    top_k: int = 10,
+    score_threshold: float = 0.35,
+    collection_name: str = "stock_summaries"
+) -> List[Dict]:
     """
-    Embed the user query and perform semantic search in Qdrant to find related stocks.
-
-    Returns:
-        List of dicts: [{"symbol": "AAPL", "summary": "...", "score": 0.89}, ...]
+    Performs a semantic search on stock summaries and returns top-matching stock metadata.
+    Each result includes symbol, name, sector, and similarity score.
     """
-    embedded_query = model.encode(user_query).tolist()
-
-    results = qdrant.search(
-        collection_name=COLLECTION_NAME,
-        query_vector=embedded_query,
+    query_vector = encoder.encode(query).tolist()
+    results = qdrant_client.search(
+        collection_name=collection_name,
+        query_vector=query_vector,
         limit=top_k,
-        with_payload=True
+        with_payload=True,
+        score_threshold=score_threshold
     )
 
-    return [
-        {
-            "symbol": hit.payload.get("symbol"),
-            "name": hit.payload.get("name"),
-            "summary": hit.payload.get("summary"),
-            "score": hit.score
-        }
-        for hit in results
-    ]
+    matched = []
+    for point in results:
+        payload = point.payload
+        matched.append({
+            "symbol": payload.get("symbol"),
+            "name": payload.get("name"),
+            "sector": payload.get("sector"),
+            "score": round(point.score, 4)
+        })
+
+    return matched
