@@ -29,6 +29,9 @@ const Chat = () => {
   const [activeTab, setActiveTab] = useState('chart');
   const chatContainerRef = useRef(null);
 
+  // ✅ Grab token once
+  const token = localStorage.getItem("token");
+
   const sendMessage = async () => {
     if (!input.trim()) return;
 
@@ -38,8 +41,12 @@ const Chat = () => {
     setSubmitted(true);
 
     try {
+      // ✅ Add Authorization header here
       const response = await axios.get('/api/compare_stocks', {
-        params: { query: input }
+        params: { query: input },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       let summary = '';
@@ -69,8 +76,12 @@ const Chat = () => {
 
       const topTicker = filteredTickers[0];
       if (topTicker) {
+        // ✅ Add Authorization header here too
         const newsRes = await axios.get('/api/news', {
-          params: { keyword: topTicker }
+          params: { keyword: topTicker },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
         setNewsResults(newsRes.data);
       }
@@ -184,37 +195,35 @@ const Chat = () => {
           {/* Right Panel */}
           <div className="w-3/5 space-y-6">
             {/* KPI Cards */}
-            {matchedTickers.length > 0 && (
-              <div>
-                <h2 className="text-lg font-semibold text-blue-700 mb-2">📊 Matched Stocks</h2>
-                <div className="grid grid-cols-2 gap-4">
-                  {matchedTickers.map((symbol) => {
-                    const data = results[symbol];
-                    if (!data) return null;
-                    return (
-                      <div key={symbol} className="bg-white p-4 rounded-lg shadow border border-gray-200">
-                        <div className="text-sm text-gray-500 mb-1">{data.name}</div>
-                        <div className="text-2xl font-bold text-blue-700">{symbol}</div>
-                        <div className="mt-2 space-y-1 text-sm">
-                          <div>
-                            <span className="text-gray-500">Start:</span>{' '}
-                            <span className="font-semibold">${data.start_price?.toFixed(2)}</span>
-                          </div>
-                          <div>
-                            <span className="text-gray-500">End:</span>{' '}
-                            <span className="font-semibold">${data.end_price?.toFixed(2)}</span>
-                          </div>
-                          <div className={data.pct_change >= 0 ? 'text-green-600' : 'text-red-600'}>
-                            Change: {data.pct_change >= 0 ? '+' : ''}
-                            {data.pct_change?.toFixed(2)}%
-                          </div>
+          {matchedTickers.length > 0 && (
+            <div>
+              <h2 className="text-base font-semibold text-blue-700 mb-2">📊 Matched Stocks</h2>
+              <div className="grid grid-cols-3 gap-3">
+                {matchedTickers.map((symbol) => {
+                  const data = results[symbol];
+                  if (!data) return null;
+                  return (
+                    <div 
+                      key={symbol} 
+                      className="bg-white p-3 rounded shadow border border-gray-200 text-sm"
+                    >
+                      <div className="text-xs text-gray-500">{data.name}</div>
+                      <div className="text-lg font-bold text-blue-700">{symbol}</div>
+                      <div className="mt-1">
+                        <div>Start: ${data.start_price?.toFixed(2)}</div>
+                        <div>End: ${data.end_price?.toFixed(2)}</div>
+                        <div className={data.pct_change >= 0 ? 'text-green-600' : 'text-red-600'}>
+                          Change: {data.pct_change >= 0 ? '+' : ''}
+                          {data.pct_change?.toFixed(2)}%
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                  );
+                })}
               </div>
-            )}
+            </div>
+          )}
+
 
             {/* Tabs */}
             <div className="flex gap-4 mt-4">
