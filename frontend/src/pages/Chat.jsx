@@ -29,7 +29,6 @@ const Chat = () => {
   const [activeTab, setActiveTab] = useState('chart');
   const chatContainerRef = useRef(null);
 
-  // ✅ Grab token once
   const token = localStorage.getItem("token");
 
   const sendMessage = async () => {
@@ -41,7 +40,6 @@ const Chat = () => {
     setSubmitted(true);
 
     try {
-      // ✅ Add Authorization header here
       const response = await axios.get('/api/compare_stocks', {
         params: { query: input },
         headers: {
@@ -76,7 +74,6 @@ const Chat = () => {
 
       const topTicker = filteredTickers[0];
       if (topTicker) {
-        // ✅ Add Authorization header here too
         const newsRes = await axios.get('/api/news', {
           params: { keyword: topTicker },
           headers: {
@@ -100,14 +97,30 @@ const Chat = () => {
     });
   }, [messages]);
 
+  // ✅ UPDATED renderLineChart with unique colors & bigger size
   const renderLineChart = () => {
     if (!matchedTickers.length || !results || !results[matchedTickers[0]]?.daily) {
       return <p>No chart data available.</p>;
     }
 
-    const datasets = matchedTickers.map((ticker) => {
+    const colors = [
+      '#1f77b4', // blue
+      '#ff7f0e', // orange
+      '#2ca02c', // green
+      '#d62728', // red
+      '#9467bd', // purple
+      '#8c564b', // brown
+      '#e377c2', // pink
+      '#7f7f7f', // gray
+      '#bcbd22', // olive
+      '#17becf'  // cyan
+    ];
+
+    const datasets = matchedTickers.map((ticker, index) => {
       const prices = results[ticker]?.daily;
       if (!Array.isArray(prices)) return null;
+
+      const color = colors[index % colors.length];
 
       return {
         label: ticker,
@@ -116,8 +129,8 @@ const Chat = () => {
           y: p.close
         })),
         borderWidth: 2,
-        borderColor: 'rgba(54, 162, 235, 1)',
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: color,
+        backgroundColor: color + '33',
         tension: 0.4,
       };
     }).filter(Boolean);
@@ -126,6 +139,7 @@ const Chat = () => {
 
     const options = {
       responsive: true,
+      maintainAspectRatio: false,
       scales: {
         x: {
           type: 'time',
@@ -147,7 +161,11 @@ const Chat = () => {
       }
     };
 
-    return <Line data={data} options={options} />;
+    return (
+      <div className="h-[500px]">
+        <Line data={data} options={options} />
+      </div>
+    );
   };
 
   return (
@@ -195,35 +213,34 @@ const Chat = () => {
           {/* Right Panel */}
           <div className="w-3/5 space-y-6">
             {/* KPI Cards */}
-          {matchedTickers.length > 0 && (
-            <div>
-              <h2 className="text-base font-semibold text-blue-700 mb-2">📊 Matched Stocks</h2>
-              <div className="grid grid-cols-3 gap-3">
-                {matchedTickers.map((symbol) => {
-                  const data = results[symbol];
-                  if (!data) return null;
-                  return (
-                    <div 
-                      key={symbol} 
-                      className="bg-white p-3 rounded shadow border border-gray-200 text-sm"
-                    >
-                      <div className="text-xs text-gray-500">{data.name}</div>
-                      <div className="text-lg font-bold text-blue-700">{symbol}</div>
-                      <div className="mt-1">
-                        <div>Start: ${data.start_price?.toFixed(2)}</div>
-                        <div>End: ${data.end_price?.toFixed(2)}</div>
-                        <div className={data.pct_change >= 0 ? 'text-green-600' : 'text-red-600'}>
-                          Change: {data.pct_change >= 0 ? '+' : ''}
-                          {data.pct_change?.toFixed(2)}%
+            {matchedTickers.length > 0 && (
+              <div>
+                <h2 className="text-base font-semibold text-blue-700 mb-2">📊 Matched Stocks</h2>
+                <div className="grid grid-cols-3 gap-3">
+                  {matchedTickers.map((symbol) => {
+                    const data = results[symbol];
+                    if (!data) return null;
+                    return (
+                      <div 
+                        key={symbol} 
+                        className="bg-white p-3 rounded shadow border border-gray-200 text-sm"
+                      >
+                        <div className="text-xs text-gray-500">{data.name}</div>
+                        <div className="text-lg font-bold text-blue-700">{symbol}</div>
+                        <div className="mt-1">
+                          <div>Start: ${data.start_price?.toFixed(2)}</div>
+                          <div>End: ${data.end_price?.toFixed(2)}</div>
+                          <div className={data.pct_change >= 0 ? 'text-green-600' : 'text-red-600'}>
+                            Change: {data.pct_change >= 0 ? '+' : ''}
+                            {data.pct_change?.toFixed(2)}%
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          )}
-
+            )}
 
             {/* Tabs */}
             <div className="flex gap-4 mt-4">
