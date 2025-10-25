@@ -20,15 +20,26 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from db.session import SessionLocal
 from models.stock import Stock
 
-def get_sp500_tickers() -> list[str]:
-    """Fetch S&P 500 tickers from Wikipedia."""
-    url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
-    table = pd.read_html(url)
-    df = table[0]
-    tickers = df['Symbol'].tolist()
+import requests
+from io import StringIO
 
-    # Yahoo Finance replaces "." with "-" in tickers
-    cleaned_tickers = [ticker.replace('.', '-') for ticker in tickers]
+def get_sp500_tickers() -> list[str]:
+    """Fetch S&P 500 tickers from Wikipedia with headers to avoid 403 errors."""
+    url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+
+    logging.info("🌐 Fetching S&P 500 list from Wikipedia...")
+    response = requests.get(url, headers=headers)
+
+    if response.status_code != 200:
+        raise Exception(f"Failed to fetch S&P 500 page. HTTP {response.status_code}")
+
+    df_list = pd.read_html(StringIO(response.text))
+    df = df_list[0]
+
+    tickers = df["Symbol"].tolist()
+    cleaned_tickers = [ticker.replace(".", "-") for ticker in tickers]
+    logging.info(f"✅ Retrieved {len(cleaned_tickers)} tickers from Wikipedia.")
     return cleaned_tickers
 
 def save_stocks_to_db(tickers: list[str]):
